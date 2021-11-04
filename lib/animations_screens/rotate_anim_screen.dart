@@ -39,9 +39,12 @@ class _RotateAnimScreenState extends State<RotateAnimScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ScaleTransition(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text('Rotate & scale animation'),
+        SizedBox(height: 25),
+        ScaleTransition(
           scale: _scaleAnimation,
           child: RotationTransition(
             turns: _rotateAnimation,
@@ -52,7 +55,7 @@ class _RotateAnimScreenState extends State<RotateAnimScreen>
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

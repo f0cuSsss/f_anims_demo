@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animations_demo/animations/f_slide_transition.dart';
 import 'package:flutter_animations_demo/animations_screens/rotate_anim_screen.dart';
 
 void main() {
@@ -15,7 +16,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RotateAnimScreen(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Animations demo'),
+        ),
+        body: const Center(
+          child: fSlideTransition(
+            child: RotateAnimScreen(),
+          ),
+        ),
+      ),
     );
   }
 }
