@@ -438,7 +438,7 @@ class _HeartsAnimScreenState extends State<HeartsAnimScreen>
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(height: 280),
+            const SizedBox(height: 320),
             FadeTransition(
                 opacity: _fadeTextLineAnimation1,
                 child: buildSecondaryText(text: "I")),
@@ -464,7 +464,7 @@ class _HeartsAnimScreenState extends State<HeartsAnimScreen>
       textAlign: TextAlign.center,
       style: const TextStyle(
         fontWeight: FontWeight.w900,
-        fontSize: 64,
+        fontSize: 72,
         overflow: TextOverflow.clip,
         shadows: [
           Shadow(offset: Offset(1.3, 1.3), blurRadius: 3.0, color: Colors.grey),
@@ -475,7 +475,7 @@ class _HeartsAnimScreenState extends State<HeartsAnimScreen>
   }
 
   Text buildSecondaryText({
-    double size = 60,
+    double size = 62,
     required String text,
   }) {
     return Text(
@@ -518,7 +518,7 @@ class _HeartsAnimScreenState extends State<HeartsAnimScreen>
     return AnimatedBuilder(
       animation: _bouncingHeartController,
       builder: (context, child) => Align(
-        alignment: Alignment.bottomCenter,
+        alignment: Alignment.topRight,
         child: Icon(Icons.favorite,
             color: Colors.red, size: _bouncingHeartAnimation.value),
       ),
