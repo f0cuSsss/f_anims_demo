@@ -228,18 +228,18 @@ class _HeartsAnimScreenState extends State<HeartsAnimScreen>
     _fadeStarController19.repeat(reverse: true);
     // --------------------------------------------------
     _scaleTextLineController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 4));
+        AnimationController(vsync: this, duration: const Duration(seconds: 5));
     _scaleTextLineAnimation = Tween<double>(begin: 0.9, end: 1.1).animate(
         CurvedAnimation(parent: _scaleTextLineController, curve: Curves.ease));
     //? ===============
     _fadeTextLineController4 =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+        AnimationController(vsync: this, duration: const Duration(seconds: 5));
     _fadeTextLineAnimation4 = Tween<double>(begin: 0.5, end: 1).animate(
         CurvedAnimation(parent: _fadeTextLineController4, curve: Curves.ease));
 
     //? ===============
     _fadeTextLineController3 =
-        AnimationController(vsync: this, duration: const Duration(seconds: 3));
+        AnimationController(vsync: this, duration: const Duration(seconds: 5));
     _fadeTextLineAnimation3 = Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(
             parent: _fadeTextLineController3, curve: Curves.bounceIn));
@@ -251,26 +251,32 @@ class _HeartsAnimScreenState extends State<HeartsAnimScreen>
     });
     //? ===============
     _fadeTextLineController2 =
-        AnimationController(vsync: this, duration: const Duration(seconds: 3));
+        AnimationController(vsync: this, duration: const Duration(seconds: 5));
     _fadeTextLineAnimation2 = Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(
             parent: _fadeTextLineController2, curve: Curves.easeIn));
     _fadeTextLineAnimation2.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        _fadeTextLineController3.forward();
+        Timer(const Duration(seconds: 2), () {
+          _fadeTextLineController3.forward();
+        });
       }
     });
     //? ===============
     _fadeTextLineController1 =
-        AnimationController(vsync: this, duration: const Duration(seconds: 3));
+        AnimationController(vsync: this, duration: const Duration(seconds: 5));
     _fadeTextLineAnimation1 = Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(
             parent: _fadeTextLineController1, curve: Curves.easeIn));
-    _fadeTextLineController1.forward();
     _fadeTextLineAnimation1.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        _fadeTextLineController2.forward();
+        Timer(const Duration(seconds: 1), () {
+          _fadeTextLineController2.forward();
+        });
       }
+    });
+    Timer(const Duration(seconds: 2), () {
+      _fadeTextLineController1.forward();
     });
     //? ===============
     // --------------------------------------------------
@@ -575,7 +581,7 @@ class _AnimatedBackgroundColorState extends State<AnimatedBackgroundColor> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 1), () {
+    Timer(const Duration(seconds: 6), () {
       setState(() => bottomColor = Colors.blue);
     });
   }
@@ -583,7 +589,7 @@ class _AnimatedBackgroundColorState extends State<AnimatedBackgroundColor> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 4),
       onEnd: () {
         setState(() {
           index = index + 1;

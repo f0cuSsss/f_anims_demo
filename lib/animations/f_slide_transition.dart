@@ -4,9 +4,11 @@ class fSlideTransition extends StatefulWidget {
   const fSlideTransition({
     Key? key,
     required this.child,
+    this.duration = const Duration(seconds: 1),
   }) : super(key: key);
 
   final Widget child;
+  final Duration duration;
 
   @override
   _fSlideTransitionState createState() => _fSlideTransitionState();
@@ -21,7 +23,7 @@ class _fSlideTransitionState extends State<fSlideTransition>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: widget.duration,
     );
     _animation = Tween<Offset>(
       begin: const Offset(0, 1),
